@@ -16,6 +16,21 @@ const player2 = player("player2", "O");
 
 const Board = () => {
   const checkForWinner = () => {
+    if (board.data[0] == board.data[1] == board.data[2] || board.data[0] == board.data[4] == board.data[8] || board.data[0] == board.data[3] == board.data[6] || board.data[3] == board.data[4] && board.data[5] || board.data[6] == board.data[7] == board.data[8] || board.data[2] == board.data[5] == board.data[8]) {
+      if (turn) {
+        console.log("player 1 wins")
+        document.querySelector(".result").textContent = "Player 1 wins."
+      } else {
+        console.log("player 2 wins")
+        document.querySelector(".result").textContent = "Player 2 wins."
+      }
+    }
+
+
+
+
+
+
 
   }
   const updateDisplay = () => {
@@ -72,6 +87,7 @@ for (let i = 1; i < 10; i++) {
     }
 
     board.updateDisplay()
+    board.checkForWinner()
     console.log(board.data)
     console.log(e.target.textContent)
 
