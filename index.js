@@ -15,7 +15,11 @@ const player = (name, team) => {
   
   
   const Board = () => {
-  
+    const updateDisplay = () => {
+      for (var i = 1; i <= 9; i++) {
+        document.querySelector(`.s${i}`).textContent = board.data[`.s${i}`]
+      }
+    }
     let turn = true;
     let data = {
       s1: "",
@@ -32,17 +36,15 @@ const player = (name, team) => {
     const playTurn = () => {
       if (turn) {
         turn = false
-        let marker= player1.markSpot();
+  
+        return player1.markSpot();
+  
   
       } else {
         turn = true
-        let marker= player2.markSpot()
+        return player2.markSpot()
       }
-      //updating the board display
-      for (var i=1; i<=9; i++){
-      document.querySelector(`.s${i}`).textContent=board.data[`.s${i}`]
-      }
-      return marker
+  
     }
     return {
       data,
@@ -58,11 +60,12 @@ const player = (name, team) => {
   for (let i = 1; i < 10; i++) {
     let target = document.getElementsByClassName(`s${i}`)[0]
     target.addEventListener("click", function(e) {
-    let dataPosition=board.data[`${e.target.classList[1]}`]
-    if (!dataPosition){
-    board.data[`${e.target.classList[1]}`] = board.playTurn();
-    }
-    console.log(board.data)
+      let dataPosition = board.data[`${e.target.classList[1]}`]
+      if (!dataPosition) {
+        board.data[`${e.target.classList[1]}`] = board.playTurn();
+      }
+      board.updateDisplay()
+      console.log(board.data)
     })
   }
   
