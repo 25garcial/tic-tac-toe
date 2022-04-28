@@ -83,7 +83,7 @@
     target.addEventListener("click", function(e) {
       let dataPosition = board.data[`${e.target.classList[1]}`]
       if (!dataPosition) {
-        board.data[`${e.target.classList[1]}`] = board.playTurn();
+        board.data[`${e.target.classList[1]}`] = function(){if (turn){return player1.team;}else{return player2.team}board.turn=!turn}
       }
 
       board.updateDisplay()
