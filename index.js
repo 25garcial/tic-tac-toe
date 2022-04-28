@@ -26,6 +26,13 @@ const Board = () => {
   }
   const checkForWinner = () => {
     if (data["s1"]==data["s2"] && data["s2"]==data["s3"] && data["s3"]!=="") {win()}
+    if (data["s4"]==data["s5"] && data["s5"]==data["s6"] && data["s6"]!=="") {win()}
+    if (data["s7"]==data["s8"] && data["s8"]==data["s9"] && data["s9"]!=="") {win()}
+    if (data["s1"]==data["s4"] && data["s4"]==data["s7"] && data["s7"]!=="") {win()}
+    if (data["s2"]==data["s5"] && data["s5"]==data["s8"] && data["s8"]!=="") {win()}
+    if (data["s3"]==data["s6"] && data["s6"]==data["s9"] && data["s9"]!=="") {win()}
+    if (data["s1"]==data["s5"] && data["s5"]==data["s9"] && data["s9"]!=="") {win()}
+    if (data["s3"]==data["s5"] && data["s5"]==data["s7"] && data["s7"]!=="") {win()}
   }
   const updateDisplay = () => {
     for (var i = 1; i <= 9; i++) {
