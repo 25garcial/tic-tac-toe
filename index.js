@@ -17,7 +17,7 @@
 
   const Board = () => {
     function win(){
-      if (!turn) {
+      if (turn) {
         console.log("player 1 wins")
         document.querySelector(".result").textContent = "Player 1 wins."
       } else {
@@ -34,6 +34,7 @@
       if (data["s3"]==data["s6"] && data["s6"]==data["s9"] && data["s9"]!=="") {win()}
       if (data["s1"]==data["s5"] && data["s5"]==data["s9"] && data["s9"]!=="") {win()}
       if (data["s3"]==data["s5"] && data["s5"]==data["s7"] && data["s7"]!=="") {win()}
+       turn = !turn
     }
     const updateDisplay = () => {
       for (var i = 1; i <= 9; i++) {
@@ -56,11 +57,10 @@
 
     const playTurn = () => {
       if (turn) {
-        turn = !turn
+       
         return player1.markSpot();
 
       } else {
-        turn = !turn
         return player2.markSpot()
       }
 
