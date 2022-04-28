@@ -14,7 +14,7 @@ for (let i = 1; i < 10; i++) {
   target.addEventListener("click", function(e) {
   if (!winner){
     let dataPosition = board.data[`${e.target.classList[1]}`]
-    alert(!dataPosition)
+    
     if (!dataPosition) {
       board.data[`${e.target.classList[1]}`] = playTurn();
       board.checkForWinner()
