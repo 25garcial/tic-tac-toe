@@ -48,7 +48,7 @@ const updateDisplay = () => {
     for (var i = 1; i <= 9; i++) {
       document.querySelector(`.s${i}`).textContent = data[`s${i}`]
     }
-    board.turn = !board.turn
+
   }
   function win() {
     if (turn) {
@@ -86,7 +86,7 @@ const updateDisplay = () => {
     if (data["s3"] == data["s5"] && data["s5"] == data["s7"] && data["s7"] !== "") {
       win()
     }
-	turn=!turn
+board.turn = !board.turn
   }
   
   let turn = true;
