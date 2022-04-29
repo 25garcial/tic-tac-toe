@@ -1,4 +1,4 @@
-
+function main(){}  
   const player = (name, team) => {
 
     const markSpot = () => {
@@ -92,6 +92,7 @@
 
     })
   }
+
 
 
   alert("loading succeded")
