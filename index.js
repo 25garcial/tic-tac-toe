@@ -1,6 +1,16 @@
 function restart(){
 	main();
-  updateDisplay();
+  updateDisplay({
+      s1: "",
+      s2: "",
+      s3: "",
+      s4: "",
+      s5: "",
+      s6: "",
+      s7: "",
+      s8: "",
+      s9: ""
+    });
 }
 function win(turn) {
   if (turn) {
@@ -67,7 +77,7 @@ function allEqual(val1,val2,val3){
 
 function updateDisplay(data) {
   for (var i = 1; i <= 9; i++) {
-    document.querySelector(`.s${i}`).textContent = data[`s${i}`];
+    document.querySelector(`.s${i}`).textContent = data[`s${i}`] || "";
   }
 }
 
