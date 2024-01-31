@@ -20,6 +20,8 @@ function win(turn) {
     console.log("player 2 wins");
     document.querySelector(".result").textContent = "Player 2 wins.";
   }
+  
+  
 }
 
 class Board {
@@ -31,11 +33,11 @@ class Board {
     for (var spotIndex = 0; spotIndex < spotArray.length; spotIndex++) {
       spotArray[spotIndex].addEventListener("click", (e) => {
         var position = e.target.classList[1];
-        if (this.checkValidTurn(position)) {
+        if (this.checkValidTurn(position) != this.checkWin(this.data)) {
           this.playTurn(position);
+        }});
         }
-      });
-    }
+    
     this.data = {
       s1: "",
       s2: "",
@@ -52,15 +54,17 @@ class Board {
   checkValidTurn(position) {
     return !this.data[position];
   }
+  
   playTurn(position) {
-
     if (this.turn) {
       this.data[position] = player1.team;
 
     } else {
       this.data[position] = player2.team
     }
-    this.checkWin(this.data);
+    if (this.checkWin(this.data)){
+    win(this.turn);
+    }
     this.turn = !this.turn;
     updateDisplay(this.data);
 
@@ -70,8 +74,10 @@ function allEqual(val1,val2,val3){
 	return val1 == val2 && val2 == val3 && val3 != "";
 }
     if (allEqual(data["s1"], data["s2"],data["s3"])  || allEqual(data["s4"],data["s5"],data["s6"]) || allEqual(data["s7"], data["s8"], data["s9"]) || allEqual(data["s1"], data["s4"], data["s7"]) ||allEqual(data["s2"], data["s5"], data["s8"]) ||allEqual(data["s3"], data["s6"], data["s9"]) ||allEqual(data["s1"], data["s5"], data["s9"]) ||allEqual(data["s3"], data["s5"], data["s7"])) {
-      win(this.turn);
+      
+      return true;
     }
+    return false;
   }
 }
 
