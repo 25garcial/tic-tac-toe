@@ -1,3 +1,8 @@
+body{
+  padding: 50px;
+  
+}
+
 .board {
   display: inline-grid;
   grid-template-columns: 100px 100px 100px;
