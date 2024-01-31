@@ -10,7 +10,7 @@ function restart(){
       s7: "",
       s8: "",
       s9: ""
-    });document.querySelector(".result").textContent = "";
+    });document.querySelector(".result").textContent = "Result: ";
 }
 function win(turn) {
   if (turn) {
