@@ -10,7 +10,9 @@ function restart(){
       s7: "",
       s8: "",
       s9: ""
-    });document.querySelector(".result").textContent = "Result: ";
+    });
+    
+    document.querySelector(".result").textContent = "result: ";
 }
 function win(turn) {
   if (turn) {
@@ -33,7 +35,7 @@ class Board {
     for (var spotIndex = 0; spotIndex < spotArray.length; spotIndex++) {
       spotArray[spotIndex].addEventListener("click", (e) => {
         var position = e.target.classList[1];
-        if (this.checkValidTurn(position) ==true && this.checkWin(this.data)==false) {
+        if (this.checkValidTurn(position)==true  && this.checkWin(this.data)==false) {
           this.playTurn(position);
         }});
         }
